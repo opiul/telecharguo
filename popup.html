@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h2>Gestionnaire de Téléchargements</h2>
+    <button id="toggle-theme" class="icon-btn" title="Changer de thème">🌓</button>
+  </header>
+  
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="recent">Récents</button>
+    <button class="tab-btn" data-tab="scheduled">Programmés</button>
+    <button class="tab-btn" data-tab="settings">Paramètres</button>
+    <button class="tab-btn" data-tab="tools">Outils</button>
+  </div>
+  
+  <div id="recent" class="tab-content active">
+    <div class="action-bar">
+      <h3>Téléchargements récents</h3>
+      <button id="clear-history" class="small-btn" title="Vider l'historique">🗑️</button>
+    </div>
+    <div id="recent-downloads" class="downloads-list">
+      <p class="empty-message">Chargement des téléchargements récents...</p>
+    </div>
+  </div>
+  
+  <div id="scheduled" class="tab-content">
+    <h3>Téléchargements programmés</h3>
+    <div id="scheduled-downloads" class="downloads-list">
+      <p class="empty-message">Aucun téléchargement programmé</p>
+    </div>
+    <div class="add-scheduled">
+      <h4>Ajouter un téléchargement programmé</h4>
+      <div class="form-group">
+        <label for="schedule-url">URL:</label>
+        <input type="text" id="schedule-url" placeholder="URL du fichier">
+      </div>
+      <div class="form-group">
+        <label for="schedule-time">Heure:</label>
+        <input type="datetime-local" id="schedule-time">
+      </div>
+      <button id="add-scheduled" class="btn">Programmer</button>
+    </div>
+  </div>
+  
+  <div id="settings" class="tab-content">
+    <h3>Configuration des dossiers</h3>
+    <div class="folder-settings">
+      <div class="setting-item">
+        <label for="images-folder">Images:</label>
+        <input type="text" id="images-folder" placeholder="Dossier pour les images">
+      </div>
+      <div class="setting-item">
+        <label for="documents-folder">Documents:</label>
+        <input type="text" id="documents-folder" placeholder="Dossier pour les documents">
+      </div>
+      <div class="setting-item">
+        <label for="audio-folder">Audio:</label>
+        <input type="text" id="audio-folder" placeholder="Dossier pour les fichiers audio">
+      </div>
+      <div class="setting-item">
+        <label for="video-folder">Vidéo:</label>
+        <input type="text" id="video-folder" placeholder="Dossier pour les fichiers vidéo">
+      </div>
+      <div class="setting-item">
+        <label for="archives-folder">Archives:</label>
+        <input type="text" id="archives-folder" placeholder="Dossier pour les archives">
+      </div>
+      <div class="setting-item">
+        <label for="other-folder">Autres:</label>
+        <input type="text" id="other-folder" placeholder="Dossier pour les autres types">
+      </div>
+    </div>
+    
+    <h3>Options avancées</h3>
+    <div class="advanced-settings">
+      <div class="setting-item checkbox">
+        <label for="auto-scan">Vérification VirusTotal automatique:</label>
+        <input type="checkbox" id="auto-scan">
+      </div>
+      <div class="setting-item">
+        <label for="virustotal-key">Clé API VirusTotal:</label>
+        <input type="text" id="virustotal-key" placeholder="Votre clé API VirusTotal">
+      </div>
+      <div class="setting-item checkbox">
+        <label for="auto-compress">Compression automatique:</label>
+        <input type="checkbox" id="auto-compress">
+      </div>
+      <div class="setting-item checkbox">
+        <label for="cloud-sync">Synchronisation cloud:</label>
+        <input type="checkbox" id="cloud-sync">
+      </div>
+    </div>
+    
+    <button id="save-settings" class="btn">Enregistrer</button>
+  </div>
+  
+  <div id="tools" class="tab-content">
+    <h3>Outils</h3>
+    
+    <div class="tool-section">
+      <h4>Compression</h4>
+      <p>Compressez vos fichiers pour économiser de l'espace</p>
+      <button id="compress-selected" class="btn">Compresser les fichiers sélectionnés</button>
+    </div>
+    
+    <div class="tool-section">
+      <h4>Sécurité</h4>
+      <p>Analysez vos téléchargements avec VirusTotal</p>
+      <button id="scan-selected" class="btn">Vérifier les fichiers sélectionnés</button>
+    </div>
+    
+    <div class="tool-section">
+      <h4>Partage</h4>
+      <p>Partagez facilement vos téléchargements</p>
+      <button id="share-selected" class="btn">Partager les fichiers sélectionnés</button>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
